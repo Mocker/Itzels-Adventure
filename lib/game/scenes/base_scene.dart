@@ -1,9 +1,10 @@
 import 'package:flame/components.dart';
-import 'package:flame/events.dart';
+
 import 'package:flutter/material.dart';
+
 import '../adventure_game.dart';
 
-class BaseScene extends Component with HasGameRef<AdventureGame> {
+class BaseScene extends Component with HasGameReference<AdventureGame> {
   @override
   Future<void> onLoad() async {
     // TODO: Load background and interactables based on scene data

@@ -1,6 +1,6 @@
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'game/adventure_game.dart';
+
+import 'screens/menu_page.dart';
 
 void main() {
   runApp(const GameApp());
@@ -17,9 +17,7 @@ class GameApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const GameWidget<AdventureGame>.controlled(
-        gameFactory: AdventureGame.new,
-      ),
+      home: const MenuPage(),
     );
   }
 }

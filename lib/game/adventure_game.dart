@@ -1,10 +1,12 @@
 import 'package:flame/game.dart';
-import 'package:flame/components.dart';
-import 'package:flutter/material.dart';
+import 'package:flame/input.dart';
+import 'package:flutter/material.dart' hide Route;
 import 'scenes/base_scene.dart';
+import 'scenes/world_scene.dart';
 import 'state/game_state.dart';
 
-class AdventureGame extends FlameGame {
+class AdventureGame extends FlameGame
+    with HasKeyboardHandlerComponents, HasCollisionDetection {
   late final RouterComponent router;
 
   @override
@@ -17,8 +19,8 @@ class AdventureGame extends FlameGame {
 
     // Setup Router for Scene Management
     router = RouterComponent(
-      initialRoute: 'start',
-      routes: {'start': Route(BaseScene.new)},
+      initialRoute: 'world',
+      routes: {'start': Route(BaseScene.new), 'world': Route(WorldScene.new)},
     );
     add(router);
   }

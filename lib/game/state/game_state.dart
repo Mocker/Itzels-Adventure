@@ -39,4 +39,24 @@ class GameState extends ChangeNotifier {
     _currentSceneId = sceneId;
     notifyListeners();
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'inventory': _inventory,
+      'flags': _flags,
+      'currentSceneId': _currentSceneId,
+    };
+  }
+
+  static GameState fromJson(Map<String, dynamic> json) {
+    final state = GameState();
+    state._inventory.clear();
+    state._inventory.addAll(List<String>.from(json['inventory'] ?? []));
+
+    state._flags.clear();
+    state._flags.addAll(Map<String, bool>.from(json['flags'] ?? {}));
+
+    state._currentSceneId = json['currentSceneId'] ?? 'start';
+    return state;
+  }
 }
